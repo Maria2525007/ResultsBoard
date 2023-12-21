@@ -13,11 +13,9 @@ public class ResultsBoard {
 
     public List<String> top3() {
         List<String> top3Students = new ArrayList<>();
-        Iterator<Student> iterator = students.iterator();
-        int count = 0;
-        while (iterator.hasNext() && count < 3) {
-            top3Students.add(iterator.next().name);
-            count++;
+        Iterator<Student> it = students.descendingIterator();
+        for (int i = 0; i < 3; i++) {
+            top3Students.add(it.next().name);
         }
         return top3Students;
     }
